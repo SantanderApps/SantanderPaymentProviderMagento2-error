@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <easycontract>
+                <model>Santander\Easycontract\Model\Easycontract</model>
+                <active>1</active>
+                <store_id>EasyStubTesters</store_id>
+                <username>testbutik1</username>
+                <password backend_model="Magento\Config\Model\Config\Backend\Encrypted">testbutik1</password>
+                <environment>test</environment>
+                <title>Santander Consumer Bank</title>
+                <payment_action>sale</payment_action>
+                <allowspecific>0</allowspecific>
+                <sort_order>200</sort_order>
+                <order_status>pending_payment</order_status>
+                <order_status_after_payment>processing</order_status_after_payment>
+                <access_log_external>1</access_log_external>
+                <group>easycontract</group>
+            </easycontract>
+        </payment>
+    </default>
+</config>

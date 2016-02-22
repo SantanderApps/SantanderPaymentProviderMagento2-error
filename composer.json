@@ -1,0 +1,29 @@
+{
+    "name": "santander/module-easycontract",
+    "description": "N/A",
+    "require": {
+        "php": "~5.5.0|~5.6.0|~7.0.0",
+        "SantanderApps/LowLevelAPI2": "0.1.4-alpha"
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/SantanderApps/LowLevelAPI2.git"
+        }
+    ],
+    "type": "magento2-module",
+    "version": "0.1.0",
+    "license": [
+            "proprietary"
+    ],
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "Santander\\Easycontract\\": ""
+        }
+    },
+    "minimum-stability": "alpha",
+    "prefer-stable": true
+}

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="payment">
+            <group id="santander" translate="label" sortOrder="200" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Santander Consumer Bank</label>
+                <field id="active" type="select" translate="label comment" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable / Disable</label>
+                    <comment>Enable Santander Consumer Bank.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Enabledisable</source_model>
+                </field>
+                <field id="order_status" type="select" translate="label comment" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>New order status</label>
+                    <comment>Status of order when order created, but before it has been processed by Santander Consumer Bank.</comment>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\NewStatus</source_model>
+                </field>
+                <field id="order_status_after_payment" type="select" translate="label comment" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Processing order status</label>
+                    <comment>Status of order that is being processed.</comment>
+                    <source_model>Magento\Sales\Model\Config\Source\Order\Status\Newprocessing</source_model>
+                </field>
+                <field id="store_id" type="text" translate="label comment" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Store ID</label>
+                    <comment>Type the store ID given to you by Santander Consumer Bank.</comment>
+                </field>
+                <field id="username" type="text" translate="label comment" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Username</label>
+                    <comment>Type the username given to you by Santander Consumer Bank.</comment>
+                </field>
+                <field id="password" type="obscure" translate="label comment" sortOrder="25" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Password</label>
+                    <comment>Type the password given to you by Santander Consumer Bank.</comment>
+                    <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+                </field>
+                <field id="merchant_id" type="text" translate="label comment" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Merchant ID</label>
+                    <comment>Type the merchant ID given to you by your payment service provider.</comment>
+                </field>
+                <field id="environment" type="select" translate="label comment" sortOrder="35" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Set Module Environment</label>
+                    <comment>In what environment will you run the module?</comment>
+                    <source_model>Santander\Easycontract\Model\Config\Source\Environment</source_model>
+                </field>
+                <field id="access_log_external" type="checkbox" translate="label comment" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Support Logs</label>
+                    <comment>For a better support experience Santander´s plugin logs all connections to and from Santander´s web services. You have the option to opt-out of these logs being automatically collected by Santander and can therefore choose to manually send in a log file when contacting Santander support services.</comment>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="test_connection" translate="label button_label" sortOrder="45" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Test connection with the web service</label>
+                    <button_label>Test connection with the web service</button_label>
+                    <button_route>easycontract/adminhtml_testconnection</button_route>
+                    <frontend_model>Santander\Easycontract\Block\Adminhtml\System\Config\Button</frontend_model>
+                </field>
+                <field id="verify_details" translate="label comment button_label" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Verify your account details</label>
+                    <comment>Will only work when module environment is set to "live".</comment>
+                    <button_label>Verify user details</button_label>
+                    <button_route>easycontract/adminhtml_verifydetails</button_route>
+                    <frontend_model>Santander\Easycontract\Block\Adminhtml\System\Config\Button</frontend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

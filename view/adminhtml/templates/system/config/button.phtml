@@ -1,0 +1,23 @@
+<?php
+/**
+ * @see \Santander\Easycontract\Block\Adminhtml\System\Config\Button
+ * @var \Santander\Easycontract\Block\Adminhtml\System\Config\Button $block
+ */
+$id = $block->escapeHtml($block->getHtmlId());
+?>
+<div class="easycontract-button-container">
+    <button class="scalable" type="button" id="<?php echo $id; ?>">
+        <span><span><span><?php echo $block->escapeHtml($block->getButtonLabel()); ?></span></span></span>
+    </button>
+</div>
+<script type="text/javascript">
+require(['jquery'], function($) {
+    $.ajax({
+        url: <?php echo $block->getButtonUrl(); ?>,
+        data: {form_key: window.FORM_KEY},
+        success: function(data) {
+            $("#<?php echo $htmlId; ?>").html(data);
+        }
+    });
+});
+</script>
